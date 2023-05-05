@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EveryDay.com</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+   
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #nav{ 
+    height: 90px;
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    place-content: stretch center;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row;
+    border-bottom: 0.1px solid rgb(63, 54, 54);
+    /* position: fixed; */
+   /* border-color: 1px solid red; */
+   
+}
+#logo{
+    /* border: 1px solid red; */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+        
+ #navigators{
+    margin: 5px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 70%;
+    padding: 0 80px 0 80px;
+    /* position: fixed; */
+    /* border: 1px solid red; */
+    }
+      #navigators div a{
+        width: fit-content;
+       
+        /* border: 1px solid red; */
+       text-decoration: none;
+       color: black;
+       }
+      
+       #navigators div{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flexbox;
+        justify-content: space-evenly;
+        position: relative;
+        height: 20px;
+        
+       }
+
+       #navigators div:hover h3 {
+        color: #20a87e;
+       }
+       
+       
+
+     
+
+     
+
+      #icons{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:center;
+            flex: 1 1 auto;
+            padding-left: 5px;
+           
+            /* border: 1px solid red; */
+        }
+
+        #icons div{
+            margin: 15px;
+        }
+        #icons div a{
+            text-decoration: none;
+        }
+
+        #icons i {
+            
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    #icons i:hover {
+        background-color: whitesmoke;
+        color: #20a87e;
+    }
+
+        #gifting{
+            display:block;
+            justify-content: center;
+            align-items: center;
+            width:100px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            /* border: 1px solid red; */
+        }
+        #gifting img{
+            width: 70px;
+            padding-left: 20px;
+        }
+        #gift{
+           display:block;
+           text-align: center;
+           /* border: 1px solid red; */
+            margin-bottom: 40px;
+        }
+
+
+
+        /* banner */
+        #banner{
+            
+            width:100%;
+            /* border: 1px solid red; */
+
+        }
+
+        #banner-container img{
+            width: 100%;
+        }
+        .image-1{
+            
+            width:100%;
+            margin-bottom: 60px;
+            /* margin-top: 40px; */
+            /* border: 1px solid red; */
+
+        }
+
+        .image-1 img{
+            width: 100%;
+        }
+
+        #image-container div{
+            display: block;
+            margin-bottom: 50px;
+        }
+
+        /* slider-cards */
+
+        #slide-cards{
+            display: flex;
+            width: 100%;
+            height: 300px;
+            margin-bottom: 50px;
+            /* border: 1px solid red; */
+        }
+        #pointer{
+            display: block;
+            width: 40%;
+            padding: 80px;
+            /* border: 1px solid red; */
+          }
+         #pointer p{
+            padding-bottom: 5px;
+         }
+        #pointer button{
+            background-color: black;
+            color: white;
+            width: 250px;
+            height: 40px;
+            /* box-shadow: rgb(123, 122, 125); */
+        } 
+        
+        /* cards */
+        .card{
+            width:20%; 
+            height: 350px;
+            padding-top:15px ;
+            /* padding-left: 6px; */
+ 
+        }
+
+        .card img{
+            width: 70%;
+            /* height: 260px; */
+            /* height: fit-content; */
+            background-color: #fafafa;
+        }
+        .card h3{
+            /* background-color: #fafafa; */
+            width: 70%;
+            font-weight:300;
+            font-size:medium;
+            /* border: 1px solid red; */
+        }
+        .card p{
+            /* background-color: #fafafa; */
+            font-weight:40;
+            width: 70%;
+            font-size: small;
+            color: rgb(107, 102, 102);
+        }
+
+        /* collections */
+   
+         .col-top{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+         }
+         .col-top h1{
+             padding-left: 35px;
+             width: 100%;
+         }
+         .col-top a{
+            color: black;
+         }
+        #collections{
+            width: 100%;
+            height: 662px;
+            display: flex;
+            margin-bottom: 100px;
+            }
+       
+            #collection{
+            display: block;
+            justify-content: space-evenly;
+            font-family:  'Graphik Regular', sans-serif;
+            align-items: center;
+        }
+        /* #collections h1{
+            margin-left: 20px;
+            display: block;
+        } */
+         .collection img{
+            /* border: 1px solid red;  */
+            width: 90%;
+            margin-left: 50px;
+        }
+        .collection h3{
+            padding-left: 0;
+            margin-left: 50px;
+            width: 90%;
+        }
+        .collection p{
+            width: 90%;
+            margin-left: 50px;
+            color: black;
+            font-family:  'Graphik Regular', sans-serif;;
+            /* text-decoration: underline; */
+        }
+
+        #chargings{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
+        }
+
+        .charging img,h2,p{
+           margin-left: 20px;
+        }
+        .charging a p{
+            text-decoration: underline;
+            color: black;
+            font-weight: lighter;
+        }
+
+        /* featured  collections*/
+
+        #featured{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            /* border: 1px solid red; */
+            height: 678px;
+            margin-bottom: 120px;
+        }
+        .feature{
+            width: 30%;
+            padding-top: 20px;
+            display: block;
+            margin-left: 20px;
+        }
+
+        .feature img,h3,p{
+            width: 100%;
+          margin-left: 20px;
+        }
+
+        .feature a{
+            /* border: 1px solid red; */
+            text-decoration: underline;
+            color: black;
+            font-weight: 200;
+        }
+
+        /* story */
+
+        #story{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-evenly;
+           
+            box-sizing: border-box;
+             border-bottom:0.1px solid rgb(60, 55, 55);
+
+             padding-bottom: 40px;
+        }
+        #story-container{
+            width: 40%;
+            /* border: 1px solid red; */
+            justify-content: start;
+        }
+
+        #story-container h1,p{
+            width: 60%;
+            margin: 20px; 
+            margin-top: 40px;
+            /* border: 1px solid red; */
+        }
+
+        #story-container h1{
+            width: 50%;
+            margin-left: 20px;
+            /* border: 1px solid red; */
+        }
+
+        #story-container p{
+            width: 80%;
+        }
+
+
+
+        #img-container{
+            width: 40%;
+        }
+        #img-container img{
+            width:100%
+        }
+
+        #handle{
+            /* border: ; */
+            height: 50px;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 32px;
+            padding-top: 50px;
+           
+        }
+        #handle h1{
+            justify-content: center;
+            text-align: center;
+        }
+
+        #scrolling{
+            margin-top: 50px;
+            border-bottom: 0.1px solid black;
+        }
+
+        /* footer-1 */
+
+        #footer-1{
+            margin-top: 30px;
+            display: block;
+            justify-content: center;
+            width: 100%;
+            border-bottom: 0.1px solid black;
+        }
+
+        #footer-1 div h1{
+           text-align: center;
+        }
+
+        #input-email {
+  /* display: flex; */
+  /* border: 1px solid red; */
+  padding-left: 400px;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; Set the height of the container to the full viewport height */
+}
+
+#input-email button{
+    padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(156, 151, 151);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgb(147, 140, 140);
+  color: Black
+}
+
+#input-email input[type="email"] {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  /* text-align: center; Center the text within the input box */
+
+}
+
+
+         /* footer-2 */
+
+         #footer-2{
+            margin-top: 30px;
+            display: block;
+            justify-content: center;
+            width: 100%;
+            border-bottom: 0.1px solid black;
+           }
+
+           #footer-2 h1{
+            text-align: center;
+           }
+
+           #returns{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            border-bottom:0.1px solid black ;
+           }
+
+           .delivery{
+            display: flex;
+            /* border-right: 1px solid black; */
+            height: 100px;
+          }
+
+          .delivery img{
+            width: 50px;
+          }
+          .delivery p{
+            /* border: 1px solid red; */
+            width: 150px;
+            margin-bottom: 40px;
+          }
+
+          /* footer-3 */
+         
+         #footer-3{
+            display: flex;
+            /* justify-content: space-evenly; */
+            width: 100%;
+            /* margin-top: 50px; */
+            border-bottom: 1px solid black;
+         }
+
+
+         #contact{
+            display: flex;
+           justify-content: center;
+            width: 60%;
+            justify-content: space-evenly;
+            border-right: 1px solid black;
+            margin-top: 20px;
+
+            /* border: 1px solid red; */
+            /* margin-top: 30px;
+            margin-right: 50px; */
+         }
+         #contact ul{
+            list-style: none;
+         }
+         #contact ul li p{
+            display: block;
+            /* border: 1px solid red; */
+            height: 50px;
+            margin: 5px;
+            width: fit-content;
+            /* padding-bottom: 5px; */
+         }
+         #contact ul li a{
+            text-decoration: none;
+            color: black
+         }
+         #contact ul li a:hover{
+            text-decoration: underline;
+         }
+
+         #connect{
+            width: 40%;
+            display: block;
+            margin-top: 80px;
+           
+           
+
+         }
+
+         #connect #follow{
+            border-bottom: 1px solid black;
+            margin-bottom: 90px;
+            padding-bottom: 10px;
+            margin-left: 50px;
+            font-size: medium;
+         }
+
+         #follow h2{
+            /* border: 1px solid red; */
+            width: 250px;
+            /* height: 30px; */
+            padding-bottom: 15px;
+            /* text-align: center; */
+         }
+
+         #download{
+            margin-bottom: 90px;
+            padding-bottom: 10px;
+            margin-left: 50px;
+            font-size: medium;
+         }
+
+         #download h2{
+            /* border: 1px solid red; */
+            margin-left: 10px;
+            width: 350px;
+            /* height: 30px; */
+            padding-bottom: 15px;
+            /* text-align: center; */
+         }
+
+         /* payments */
+       
+         #payment{
+            display: block;
+            width: 100%;
+            height: 150px;
+            text-align: center;
+            border-bottom: 1px solid black;
+            padding: 50px;
+         }
+
+         #banks a img{
+            justify-content: center;
+            width:90px
+         }
+
+         /* footer-end */
+     
+         #footer-end{
+            margin-top: 0px;
+            width: 100%;
+            height: 90px;
+            text-align:start;
+            background-color: black;    
+            border: 1px solid black;    
+         }
+
+         #footer-end p{
+            /* margin-bottom: 40px; */
+            /* padding-top: 40px; */
+            color: white;
+         }
+
+
+        
+</style>
+</head>
+<body>
+    <div id="nav">
+            <div id="logo">
+                <a href="index.html"><img src="https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-2,w-135,h-27,dpr-1" alt=""></a>
+            </div>
+            <div id="navigators">
+               <div>
+                <a href="nav1.html"><h3>TECH</h3></a>
+            
+            </div> 
+               
+               <div><a href="nav2.html"><h3>BAGS & WALLETS</h3></a> 
+               
+            </div>  
+               
+               <div> <a href="nav3.html"><h3>WORK ESSENTIALS</h3></a> 
+            </div> 
+               
+               <div id="gifting"><img src="https://images.dailyobjects.com/marche/corporate-page/gifting-update.png?tr=cm-pad_resize,v-2" alt=""> 
+                <div id="gift"><a href="nav4.html"><h3>GIFTING</h3></a></div>
+                </div>
+                    
+               <div><a href="nav5.html"><h3>COLLECTIONS</h3></a></div> 
+
+               <div><a href="nav6.html"><h3>SHOP BY APPLE </h3></a></div>  
+                 
+               <div><a href="nav7.html"><h3>NEW ARRIVALS</h3></a></div> 
+            </div>
+            <div id="icons">
+                <div><a href=""> <i class="fas fa-shopping-bag"></i></a></div>
+               <div><a href=""> <i class="fas fa-user"></i></a></div>
+               <div><a href=""> <i class="fa fa-search"></i></a></div>
+            </div>
+           
+    </div>
+
+    <div id="banner">
+        <div id="banner-container"><img src="https://images.dailyobjects.com/marche/assets/images/other/offer-baners-updated-homepage-desktop.jpg?tr=cm-pad_crop,v-2,dpr-1" alt=""></div>
+   </div>
+  <div id="image-container">
+   <div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/homepage/desktop/pangea_collection_homepage_desktop.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+   </div>
+   
+   <div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/other/watchband-homepage-desktop-02.png?tr=cm-pad_resize,v-2,dpr-1" alt="">
+   </div>
+   </div>
+
+
+   <div id="slide-cards">
+         <div id="pointer">
+            <h1>NEW ARRIVALS</h1>
+            <p>Check out our newest launches.</p>
+            <button>Shop New Arrivals</button>
+         </div>
+
+         <div class="card">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/halo-magsafe-case-with-stand-new-arrival-homepage-image.png?tr=cm-pad_resize,v-2,dpr-1" alt="">
+            <p>Available in Multiple models</p>
+            <h3>Halo Phone Cases</h3>
+        </div>
+         <div class="card">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/convoy-leather-adapter-case-new-arrival-homepage-image.png?tr=cm-pad_resize,v-2,dpr-1" alt="">
+            <p>Available in Multiple models</p>
+            <h3>Halo Phone Cases</h3>
+        </div>
+         <div class="card">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/condo-watch-charging-stand-new-arrival-imge.png?tr=cm-pad_resize,v-2,dpr-1" alt="">
+            <p>Available in Multiple models</p>
+            <h3>Halo Phone Cases</h3>
+        </div>
+         <div class="card">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/group-6681.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+            <p>Available in Multiple models</p>
+            <h3>Halo Phone Cases</h3>
+        </div>
+
+   </div>
+   <div class="image-1">
+     <img src="https://images.dailyobjects.com/marche/assets/images/other/charging-solution-desktops.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+   </div>
+   <div class="image-1">
+     <img src="https://images.dailyobjects.com/marche/assets/images/homepage/desktop/Desktop-banner_backpacks-updated.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+   </div>
+
+   <div id="slide-cards">
+    <div id="pointer">
+       <h1>SHOP CATEGORIES</h1>
+      <p> Now browse our selection of carefully curated products in sorted categories.</p>
+    
+    </div>
+
+    <div class="card">
+       <img src="https://images.dailyobjects.com/marche/assets/images/other/cases-ups.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>Cases</h3>
+   </div>
+    <div class="card">
+       <img src="https://images.dailyobjects.com/marche/assets/images/other/laptop-sleeve-ups.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>Laptop Sleeves</h3>
+   </div>
+    <div class="card">
+       <img src="https://images.dailyobjects.com/marche/assets/images/other/charging-solution-ups.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>Charging Solution</h3>
+   </div>
+    <div class="card">
+       <img src="https://images.dailyobjects.com/marche/assets/images/other/tote-ups.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>Tote Bags</h3>
+   </div>
+   
+
+</div>
+
+<div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/other/messenger-bags-desktops.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+  </div>
+
+
+   <div class="col-top"><div><h1>Collections</h1></div>
+   <a href="">See all</a>
+   </div> 
+    <div id="collections">
+     <div class="collection">
+        <img src="https://images.dailyobjects.com/marche/assets/images/other/collection-08-01.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+        <h3>08:01 COLLECTION</h3>
+        <p>  A collection featured to preserve all brief encounters on your everyday journey.</p>
+        <a href=""><p>Shop Now</p></a>
+    </div>
+    <div class="collection">
+        <img src="https://images.dailyobjects.com/marche/assets/images/other/collection-tarp.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+        <h3>TARP COLLECTION</h3>
+        <p>Urban-inspired carriers, made for free-spirited and powerful wearers.</p>
+        <a href=""><p>Shop Now</p></a>
+    </div>
+    <div class="collection">
+        <img src="https://images.dailyobjects.com/marche/assets/images/other/collection-08-01.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+        <h3>PLATFORM COLLECTION</h3>
+        <p>Designed with minimal geometric innovations to add comfort to your workspace.</p>
+        <a href=""><p>Shop Now</p></a>
+    </div>
+
+  </div>
+
+  <div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/other/phone-cases-desktop-up.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+  </div>
+
+  <div id="chargings">
+    <div class="charging">
+        <img src="https://images.dailyobjects.com/marche/assets/images/other/charging-ssolution.jpg?tr=cm-pad_crop,v-2,w-704,dpr-1" alt="">
+        <h2>CHARGING SOLUTIONS</h2>
+        <a href=""><p>Shop Now</p></a>
+    </div>
+    <div class="charging">
+        <img src="https://images.dailyobjects.com/marche/assets/images/other/work-eessentials.jpg?tr=cm-pad_crop,v-2,w-704,dpr-1" alt="">
+        <h2>WORK ESSENTIALS</h2>
+        <a href=""><p>Shop Now</p></a>
+    </div>
+  </div>
+
+  <div class="col-top"><div><h1>FEATURED Collections</h1></div>
+  <a href="">See all</a>
+  </div> 
+   <div id="featured">
+    <div class="feature">
+       <img src="https://images.dailyobjects.com/marche/assets/images/homepage/slider/paws_and_claws_revised-01.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>08:01 COLLECTION</h3>
+       <p>  A collection featured to preserve all brief encounters on your everyday journey.</p>
+       <a href=""><p>Shop Now</p></a>
+   </div>
+   <div class="feature">
+       <img src="https://images.dailyobjects.com/marche/assets/images/other/collection-tarp.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>TARP COLLECTION</h3>
+       <p>Urban-inspired carriers, made for free-spirited and powerful wearers.</p>
+       <a href=""><p>Shop Now</p></a>
+   </div>
+   <div class="feature">
+       <img src="https://images.dailyobjects.com/marche/assets/images/other/collection-08-01.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+       <h3>PLATFORM COLLECTION</h3>
+       <p>Designed with minimal geometric innovations to add comfort to your workspace.</p>
+       <a href=""><p>Shop Now</p></a>
+   </div>
+
+ </div>
+
+ <div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/other/organisers-desktops.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+   </div>
+ <div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/other/organisers-desktops.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+   </div>
+ <div class="image-1">
+    <img src="https://images.dailyobjects.com/marche/assets/images/other/corporate-gifting-desktops.jpg?tr=cm-pad_crop,v-2,dpr-1" alt="">
+   </div>
+
+   <div id="story">
+    <div id="story-container"><h1>OUR STORY</h1>
+    <p>Founded in 2012, DailyObjects is a design-obsessed lifestyle accessories brand committed to making your everyday carry #lessordinary. <br>
+        <br>
+        
+        You can look forward to a carefully-crafted range of products, made from long-lasting materials, with designs that stand out and make your life easy. With DailyObjects, let your lifestyle reflect your sensibilities as you go on to make your every day #lessordinary.</p>
+        <a href=""><p>See More</p></a> 
+    </div>
+    
+    <div id="img-container"><img src="https://images.dailyobjects.com/marche/assets/images/other/Our-Story-updated01.jpg?tr=cm-pad_crop,v-2,dpr-1" alt=""></div>
+      
+</div>
+
+  <div id="handle"><h1>@dailyobjects_official</h1></div>
+
+  <div id="scrolling">
+    <marquee behavior="scrolling" direction="left">
+        <div class="cards">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/artboard-7.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/social/05.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/artboard-8.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/social/06.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/social/004.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/artboard-6.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/artboard-8.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/social/06.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+            <img src="https://images.dailyobjects.com/marche/assets/images/other/artboard-9.jpg?tr=cm-pad_crop,v-2,w-353,dpr-1" alt="">
+        </div>
+    </marquee>
+  </div>
+
+
+  <div id="footer-1">
+    <div><h1>GET EXCLUSIVE ACCESS TO NEW PRODUCTS, DEALS & SURPRISE TREATS
+    </h1></div>
+    <div id="input-email"><input type="email" name="" id="" placeholder="Enter your Email"> <button>SUBSCRIBE</button></div>
+    <div id="featured-in"><h1>FEATURED IN</h1></div>
+    <div>
+        <img src="https://images.dailyobjects.com/marche/icons/press-desktop.png?tr=cm-pad_resize,v-2,w-1519,h-200,dpr-1" alt="">
+    </div>
+  </div>
+
+  <div id="footer-2">
+    <div><h1>HONEST REVIEWS. NOTHING ELSE.</h1></div>
+    <div><img src="https://images.dailyobjects.com/marche/assets/images/other/reviews-desktop-updated-23.png?tr=cm-pad_resize,v-2,w-1519,h-200,dpr-1" alt=""></div>
+  </div>
+
+  <div id="returns">
+    <div class="delivery"><img src="https://images.dailyobjects.com/marche/icons/social/quick-delivery.svg?tr=cm-pad_resize,v-2,w-40,h-40,dpr-1" alt="">
+    <p>QUICK DELIVERY</p></div>
+    <div  class="delivery"><img src="https://images.dailyobjects.com/marche/icons/social/easy-returns.svg?tr=cm-pad_resize,v-2,w-40,h-40,dpr-1" alt="">
+    <p>EASY RETURNS</p></div>
+    <div  class="delivery"><img src="https://images.dailyobjects.com/marche/icons/social/quality-assured.svg?tr=cm-pad_resize,v-2,w-40,h-40,dpr-1" alt="">
+    <p>QUALITY ASSURED</p></div>
+  </div>
+
+  <div id="footer-3">
+        <div id="contact">
+       
+        <div> 
+        <!-- <div class="headers"></div>  -->
+        <ul>
+            <li><h4>KNOW US</h4></li>
+            <li><a href=""><p>About EveryDay</p></a></li>
+            <li><a href=""><p>Blog</p></a></li>
+        </ul>
+    </div>
+   
+        <div>
+         <!-- <div class="headers"></div> -->
+        <ul>
+            <li><h4>NETWORK</h4></li>
+            <li><a href=""><p>Terms Of Use</p></a></li>
+            <li><a href=""><p>Warranty Policy</p></a></li>
+            <li><a href=""><p>Shipping Policy</p></a></li>
+            <li><a href=""><p>Cancellation Policy</p></a></li>
+            <li><a href=""><p> Return and Exchange Policy</p></a></li>
+            <li><a href=""><p>Privacy & Security Policy</p></a></li>
+           
+        </ul>
+        </div >
+        <div>
+        <!-- <div class="headers"></div> -->
+        <ul>
+            <li><h4>HELPDESKS</h4></li>
+            <li><a href=""><p>Contact Us</p></a></li>
+            <li><a href=""><p>Corporate Gifting</p></a></li>
+        </ul>
+        </div>
+    </div>
+    <div id="connect">
+        <div id="follow"><h2>FOLLOW US</h2>
+         <a href=""><img src="https://images.dailyobjects.com/marche/icons/social/instagram.svg?tr=cm-pad_resize,v-2,w-36,h-36,dpr-1" alt=""></a>
+         <a href=""><img src="https://images.dailyobjects.com/marche/icons/social/facebook.svg?tr=cm-pad_resize,v-2,w-36,h-36,dpr-1" alt=""></a>
+         <a href=""><img src="https://images.dailyobjects.com/marche/icons/social/youtube.svg?tr=cm-pad_resize,v-2,w-36,h-36,dpr-1" alt=""></a>
+         <a href=""><img src="https://images.dailyobjects.com/marche/icons/social/twitter.svg?tr=cm-pad_resize,v-2,w-36,h-36,dpr-1" alt=""></a>
+         <a href=""><img src="https://images.dailyobjects.com/marche/icons/social/pinterest.svg?tr=cm-pad_resize,v-2,w-36,h-36,dpr-1" alt=""></a>
+        </div>
+
+        <div id="download"><h2>DOWNLOAD OUR APP</h2>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/android.png?tr=cm-pad_resize,v-2,w-118,h-38,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/IOS.png?tr=cm-pad_resize,v-2,w-118,h-38,dpr-1" alt=""></a>
+        </div>
+    </div>
+  </div>
+
+
+  <div id="payment">
+    <h3>100% SECURE PAYMENT</h3>
+    <div id="banks">
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/amex-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/maestro-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/mastercard-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/mobikwik-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/paytm-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/rupay-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/upi-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+        <a href=""><img src="https://images.dailyobjects.com/marche/icons/payments/visa-update.png?tr=cm-pad_resize,v-2,dpr-1" alt=""></a>
+    </div>
+  </div>
+
+   <div id="footer-end">
+    <p>© 2012 - 2023 Firki Wholesale Pvt. Ltd.</p>
+   </div>
+    
+</body>
+</html>

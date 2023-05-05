@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON to Chart Example</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.
+    css"/>
+  <link rel="stylesheet" href="../styles/chart.css">
+</head>
+<body>
+    <div class="navigation">
+        <div class="toggles"><img src="logoB.png.jpg" alt=""></div>
+        <div class="n1">
+            <div>
+                <i  id="menu-btn" class="fas fa-bars"></i>
+            </div>
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="search">
+            
+            </div>
+        </div>
+   
+    <div class="profile">
+        <i class="fa fa-bell"></i> 
+        <img src="logoB.png.jpg" alt="" >
+    </div>
+    </div>
+	<div id="mainDiv">
+     <div id="chart2"> <canvas id="chartDetails"></canvas></div>
+	<div class="diagram"><canvas id="myChart" ></canvas></div>
+   <h3 class="heading">Categorical sales</h3></div>
+	<script>
+		
+   
+        const chartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: 'My Dataset',
+                data: [3555, 8675, 46769, 90876, 50356, 60324, 70255],
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                tension: 0.4
+            }]
+        };
+
+        const chartOptions = {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'My Line Chart'
+                }
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Month'
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Value'
+                    }
+                }
+            }
+        };
+
+        const chartDetails = new Chart(document.getElementById('chartDetails'), {
+            type: 'line',
+            data: chartData,
+            options: chartOptions
+        });
+		// JSON data
+		const data = {
+			"total_sales": {
+				"value": 1000000
+			},
+			"categorical_sales": [
+				{
+					"category": "Boat spares",
+					"sales": 500000
+				},
+				{
+					"category": "fishing rods",
+					"sales": 250000
+				},
+				{
+					"category": "fishing reels",
+					"sales": 150000
+				},
+				{
+					"category": "fishing lures",
+					"sales": 100000
+				}
+			]
+		};
+
+		// Extracting labels and values from JSON data
+		const labels = data.categorical_sales.map(item => item.category);
+		const values = data.categorical_sales.map(item => item.sales);
+
+		// Creating chart using Chart.js
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'pie',
+			data: {
+				labels: labels,
+				datasets: [{
+					label: 'Categorical Sales',
+					data: values,
+					backgroundColor: [
+						'rgba(255, 966, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				}
+			}
+		});
+	</script>
+</body>
+</html>

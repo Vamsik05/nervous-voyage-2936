@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <style>
+          
+          *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           
+           
+        }
+#nav{ 
+    height: 90px;
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    place-content: stretch center;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row;
+    border-bottom: 0.1px solid rgb(63, 54, 54);
+    /* position: fixed; */
+   /* border-color: 1px solid red; */
+   
+}
+#logo{
+    /* border: 1px solid red; */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+        
+ #navigators{
+    margin: 5px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 70%;
+    padding: 0 80px 0 80px;
+    /* position: fixed; */
+    /* border: 1px solid red; */
+    }
+      #navigators div a{
+        width: fit-content;
+       
+        /* border: 1px solid red; */
+       text-decoration: none;
+       color: black;
+       }
+      
+       #navigators div{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flexbox;
+        justify-content: space-evenly;
+        position: relative;
+        height: 20px;
+        
+       }
+
+       #navigators div:hover h3 {
+        color: #20a87e;
+       }
+       
+       
+
+     
+
+     
+
+      #icons{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:center;
+            flex: 1 1 auto;
+            padding-left: 5px;
+           
+            /* border: 1px solid red; */
+        }
+
+        #icons div{
+            margin: 15px;
+        }
+        #icons div a{
+            text-decoration: none;
+        }
+
+        #icons i {
+            
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    #icons i:hover {
+        background-color: whitesmoke;
+        color: #20a87e;
+    }
+
+        #gifting{
+            display:block;
+            justify-content: center;
+            align-items: center;
+            width:100px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            /* border: 1px solid red; */
+        }
+        #gifting img{
+            width: 70px;
+            padding-left: 20px;
+        }
+        #gift{
+           display:block;
+           text-align: center;
+           /* border: 1px solid red; */
+            margin-bottom: 40px;
+        }
+
+
+
+        /* banner */
+        #banner{
+            
+            width:100%;
+            /* border: 1px solid red; */
+
+        }
+
+        #banner-container img{
+            width: 100%;
+        }
+
+        /* header */
+     #header{
+        margin-left: 600px;
+     }
+
+     #big-main{
+        width: 100%;
+        display: flex;
+     }
+
+
+      #main-container{
+        display: grid;
+       /* border: 1px solid red; */
+        width: 90%;
+      }
+
+      #product-card-template{
+         display: grid;
+         grid-template-columns:1,1fr;
+        
+      }
+
+      .product-card {
+  margin-left: 50px;
+  margin-top: 100px;
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 70%;
+  justify-content: center;
+  height: 300px;
+  padding-left: 10px;
+  /* border: 1px solid red */
+}
+
+.product-images {
+  width: 100%;
+}
+
+.product-title {
+  margin-top: 60px;
+}
+
+/* .prices {
+   Styles for prices go here 
+} */
+
+.add-remove {
+  display: flex;
+  width: 70px;
+  align-items: baseline;
+  margin-top: 100px;
+  margin-right: 350px;
+  justify-content: center;
+}
+
+.add-remove button {
+  width: 30px;
+  height: 30px;
+}
+
+.delete {
+  margin-left: 400px;
+  position: relative;
+  top: -40px;
+}
+
+.count {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  padding-bottom: 5px;
+  padding-top: 0
+}
+
+
+        /* #product-card{
+            margin-left: 50px;
+            margin-top: 100px;
+            display: flex;
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: 50%;
+            justify-content: center;
+            height: 300px;
+        }
+
+        #product-card .product-images{
+            width:auto;
+        }
+
+        .product-title{
+           margin-top: 60px;
+         
+        }
+
+      
+
+        #product-card .add-remove{
+            justify-content: baseline;
+        }
+
+        .add-remove{
+            display: flex;
+           
+            width: 70px;
+        
+            align-items: baseline;
+            margin-top: 100px;
+            margin-right: 350px;
+            justify-content: center;
+        }
+
+        .add-remove button{
+            width: 30px;
+            height: 30px;
+        }
+            
+        
+
+        #product-card .delete{
+            margin-left: 400px;
+            position: relative;
+                top: -40px;
+           }
+           #count{
+            border: 1px solid black;
+             width: 30px;
+             height: 30px;
+             padding-bottom: 5px;
+             padding-top: 0px;
+           } */
+
+           /* checkout */
+
+           #checkout{
+            /* border: 1px solid red; */
+            width: 35%;
+            margin-left: 80px;
+            margin-top: 100px;
+           }
+
+           #make-gift{
+            display: flex;
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 60px;
+            background-color:#cfebe1;
+            text-align: center;
+            justify-content: start;
+            border-bottom: 1px solid black;
+         } 
+
+         #make-gift h3,i{
+            padding-top: 2%;
+            /* border: 1px solid red; */
+            margin-left: 20px;
+         }
+
+         #make-gift i{
+            height: 30px;
+           padding-top: 8px;
+           margin-top: 2%;
+         }
+         
+         #coupon{
+           display: flex;
+           border-bottom :1px solid black;
+           height: 60px;
+           justify-content: flex-start;
+         }
+
+         #coupon h3,i{
+            padding-top: 2%;
+            /* border: 1px solid red; */
+            margin-left: 20px;
+         } 
+
+         #coupon i{
+            height: 30px;
+            padding-top: 8px;
+            margin-top: 2%;
+         }
+
+         #redeem{
+            display: flex;
+            /* height: 30px; */
+           /* padding-top: 8px; */
+           margin-top: 2%;
+           border-bottom: 00.01px solid black;
+         }
+
+         #redeem h3,i{
+            padding-top: 2%;
+            /* border: 1px solid red; */
+            margin-left: 20px;
+         }
+
+         #redeem i{
+            height: 30px;
+           padding-top: 8px;
+           margin-top: 2%;
+         }
+
+         #summary{
+            margin-top: 30px;
+            /* border: 1px solid red; */
+            display: Block;
+            height: fit-content;
+         }
+
+         #total{
+            display: flex;
+            /* border: 1px solid red; */
+            justify-content: space-between;
+         }
+
+         #shipping{
+            display: flex;
+            /* border: 1px solid red; */
+            justify-content: space-between;
+            /* flex-wrap: wrap-reverse; */
+            border-bottom: 1px solid black;
+       }
+
+       #shipping p,h5{
+        margin-top: 8px
+       }
+
+         #grand-total{
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            text-align: start;
+            border-bottom: 1px solid black;
+         }
+
+         #grand-total p,h5{
+            margin-top: 15px;
+         }
+
+         #button{
+            margin-top: 10px;
+            height: 60px;
+            width: 100%;
+            border: none;
+         }
+
+         #button button{
+            margin-top: 10px;
+            height: 60px;
+            width: 100%;
+            border: none;
+            background-color: #20a87e;
+            color: white;
+         }
+
+
+
+
+
+</style>
+</head>
+<body>
+
+    <div id="nav">
+        <div id="logo">
+            <img src="https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-2,w-135,h-27,dpr-1" alt="">
+        </div>
+        <div id="navigators">
+           <div>
+            <a href=""><h3>TECH</h3></a>
+        
+        </div> 
+           
+           <div><a href=""><h3>BAGS & WALLETS</h3></a> 
+           
+        </div>  
+           
+           <div> <a href=""><h3>WORK ESSENTIALS</h3></a> 
+        </div> 
+           
+           <div id="gifting"><img src="https://images.dailyobjects.com/marche/corporate-page/gifting-update.png?tr=cm-pad_resize,v-2" alt=""> 
+            <div id="gift"><a href=""><h3>GIFTING</h3></a></div>
+            </div>
+                
+           <div><a href=""><h3>COLLECTIONS</h3></a></div> 
+
+           <div><a href=""><h3>SHOP BY APPLE </h3></a></div>  
+             
+           <div><a href=""><h3>NEW ARRIVALS</h3></a></div> 
+        </div>
+        <div id="icons">
+            <div><a href=""> <i class="fas fa-shopping-bag"></i></a></div>
+           <div><a href=""> <i class="fas fa-user"></i></a></div>
+           <div><a href=""> <i class="fa fa-search"></i></a></div>
+        </div>
+       
+</div>
+
+<div id="banner">
+    <div id="banner-container"><img src="https://images.dailyobjects.com/marche/assets/images/other/offer-baners-updated-homepage-desktop.jpg?tr=cm-pad_crop,v-2,dpr-1" alt=""></div>
+</div> 
+                  <!-- nav ends here -->
+
+          
+          <div id="header"><h1>SHOPPING BAG</h1></div>  
+          <div id="big-main">         
+    <div id="main-container">
+        <template id="product-card-template">
+    <div class="product-card">
+       <img class="product-images" src="https://images.dailyobjects.com/marche/product-images/1205/dailyobjects-crimson-red-swing-duffle-bag-images/DailyObjects-Red-Swing-Duffle-Bag.png?tr=cm-pad_resize,v-2,w-134,h-164,dpr-1" alt="">
+       <div><p class="product-title">Orange Ridge Loop Apple WatchBand <br> (42/44/45/49mm)</p>
+    <h5 class="prices">Rs.1599  <del class="discount"> 1999</del> </h5> 
+    <div ><button class="add">+</button><p id="count"></p><button class="remove">-</button></div>
+     <div class="delete"><i class="far fa-trash-alt"></i></div> 
+    </div>
+    </div>
+</template>
+
+    
+</div>
+    
+
+<div id="checkout">
+    <div id="make-gift"><i class="fas fa-gift"></i>
+        <h3>MAKE IT A GIFT FOR INR 250</h3></div>
+    <div id="coupon"><i class="fas fa-tags"></i>
+       <h3>COUPONS AND OFFERS</h3></div>
+    <div id="redeem"><i class="fas fa-credit-card"></i><h3>REDEEM GIFT CARD</h3></div>
+    <div id="summary"><h3>ORDER SUMMARY</h3>
+   <div id="total"> <p>total items (1 item)</p><h5>RS 1599</h5></div>
+   <div id="shipping"> <p>Shipping</p><h5>FREE</h5></div>
+    </div>
+    <div id="grand-total"><p>GRAND TOTAL</p> <h5>RS 1599</h5></div>
+    <div id="button"><button> CHECKOUT</button></div>
+</div>
+</div> 
+    
+</body>
+<script>
+  // Get the template and main container
+const template = document.querySelector('#product-card-template');
+const mainContainer = document.querySelector('#main-container');
+
+// Function to create a product card from data
+function createProductCard(data) {
+  // Clone the template
+  const productCard = template.content.cloneNode(true);
+
+  // Fill in the data
+  const images = productCard.querySelector('.product-images');
+  images.src = data.image;
+  images.alt = data.name;
+
+  productCard.querySelector('.product-title').textContent = data.name;
+
+  const prices = productCard.querySelector('.prices');
+  prices.innerHTML = `<span class="price">${data.price}</span>`;
+
+  // Add event listeners to the add and remove buttons
+  const addBtn = productCard.querySelector('.add');
+  const removeBtn = productCard.querySelector('.remove');
+  const countSpan = productCard.querySelector('.count');
+  let count = 0;
+
+  addBtn.addEventListener('click', () => {
+    count++;
+    countSpan.textContent = count;
+  });
+
+  removeBtn.addEventListener('click', () => {
+    if (count > 0) {
+      count--;
+      countSpan.textContent = count;
+    }
+  });
+
+  productCard.querySelector('.delete').addEventListener('click', () => {
+    productCard.remove();
+  });
+
+  // Add the product card to the main container
+  mainContainer.appendChild(productCard);
+}
+
+// Fetch the product data from the API and create product cards for each one
+fetch('http://localhost:3000/cart')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(productData => createProductCard(productData));
+  });
+
+
+</script>
+</html>

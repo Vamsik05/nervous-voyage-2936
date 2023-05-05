@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.
+  css"/> -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="../styles/addproducts.css">
+  
+</head>
+<body>
+  <div class="navigation">
+    <div class="n1">
+        <div>
+            <i  id="menu-btn" class="fas fa-bars"></i>
+        </div>
+        <div class="search">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="search">
+        
+        </div>
+    </div>
+
+<div class="profile">
+    <i class="fa fa-bell"></i> 
+    <img src="logoB.png.jpg" alt="" >
+</div>
+</div>
+  <div class="container">
+    <div class="form-container">
+      <h2>Add Product Form</h2>
+      <form id="add_product_form">
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="description">Product Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" min="0" step="0.01" required>
+        <br>
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" required>
+        <br>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+    <div id="card-container"></div>
+  </div>
+  
+  
+
+  <script src="../scripts/addproducts.js"></script>
+  
+  
+</body>
+</html>

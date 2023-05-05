@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+    <style>
+          *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #nav{ 
+    height: 90px;
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    place-content: stretch center;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row;
+    border-bottom: 0.1px solid rgb(63, 54, 54);
+    /* position: fixed; */
+   /* border-color: 1px solid red; */
+   
+}
+#logo{
+    /* border: 1px solid red; */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+        
+ #navigators{
+    margin: 5px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    width: 70%;
+    padding: 0 80px 0 80px;
+    /* position: fixed; */
+    /* border: 1px solid red; */
+    }
+      #navigators div a{
+        width: fit-content;
+       
+        /* border: 1px solid red; */
+       text-decoration: none;
+       color: black;
+       }
+      
+       #navigators div{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flexbox;
+        justify-content: space-evenly;
+        position: relative;
+        height: 20px;
+        
+       }
+
+       #navigators div:hover h3 {
+        color: #20a87e;
+       }
+       
+       
+
+     
+
+     
+
+      #icons{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:center;
+            flex: 1 1 auto;
+            padding-left: 5px;
+           
+            /* border: 1px solid red; */
+        }
+
+        #icons div{
+            margin: 15px;
+        }
+        #icons div a{
+            text-decoration: none;
+        }
+
+        #icons i {
+            
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    #icons i:hover {
+        background-color: whitesmoke;
+        color: #20a87e;
+    }
+
+        #gifting{
+            display:block;
+            justify-content: center;
+            align-items: center;
+            width:100px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            /* border: 1px solid red; */
+        }
+        #gifting img{
+            width: 70px;
+            padding-left: 20px;
+        }
+        #gift{
+           display:block;
+           text-align: center;
+           /* border: 1px solid red; */
+            margin-bottom: 40px;
+        }
+
+
+
+        /* banner */
+        #banner{
+            
+            width:100%;
+            /* border: 1px solid red; */
+
+        }
+
+        #banner-container img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="logo">
+            <a href="index.html"><img src="https://images.dailyobjects.com/marche/icons/logo_named.png?tr=cm-pad_resize,v-2,w-135,h-27,dpr-1" alt=""></a>
+        </div>
+        <div id="navigators">
+           <div>
+            <a href="nav1.html"><h3>TECH</h3></a>
+        
+        </div> 
+           
+           <div><a href="nav2.html"><h3>BAGS & WALLETS</h3></a> 
+           
+        </div>  
+           
+           <div> <a href="nav3.html"><h3>WORK ESSENTIALS</h3></a> 
+        </div> 
+           
+           <div id="gifting"><img src="https://images.dailyobjects.com/marche/corporate-page/gifting-update.png?tr=cm-pad_resize,v-2" alt=""> 
+            <div id="gift"><a href="nav4.html"><h3>GIFTING</h3></a></div>
+            </div>
+                
+           <div><a href="nav5.html"><h3>COLLECTIONS</h3></a></div> 
+
+           <div><a href="nav6.html"><h3>SHOP BY APPLE </h3></a></div>  
+             
+           <div><a href="nav7.html"><h3>NEW ARRIVALS</h3></a></div> 
+        </div>
+        <div id="icons">
+            <div><a href=""> <i class="fas fa-shopping-bag"></i></a></div>
+           <div><a href=""> <i class="fas fa-user"></i></a></div>
+           <div><a href=""> <i class="fa fa-search"></i></a></div>
+        </div>
+       
+</div>
+
+<div id="banner">
+    <div id="banner-container"><img src="https://images.dailyobjects.com/marche/assets/images/other/offer-baners-updated-homepage-desktop.jpg?tr=cm-pad_crop,v-2,dpr-1" alt=""></div>
+</div>
+
+    <div id="car-container">
+       <div >  <img src="" alt="">
+         <p></p>
+         <h3></h3>
+         <h4></h4>
+    </div>
+    </div>
+</body>
+<script>
+ 
+ // retrieve data from API
+fetch("http://localhost:3000/products")
+  .then(response => response.json())
+  .then(product => {
+    // create product card
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+      <div class="divImage"> <img src="${product.image}" alt="${product.name}"></div>
+      <div>
+        <div> <h2>${product.name}</h2></div>
+       
+        <div class="rate"><p>Price: $${product.price}</p></div>
+        <div class="rate"><p>Offer: $${product.offer}</p></div>
+        
+      </div>
+    `;
+    
+    // add product card to page
+    const container = document.querySelector('.product-container');
+    container.appendChild(card);
+  })
+  .catch(error => console.error(error));
+
+           
+</script>
+</html>

@@ -1,0 +1,74 @@
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background: #fff;
+    padding: 15px 30px;
+    border-bottom: 3px solid #594ef7;
+    /* width: calc(100% - 300px); */
+    position: fixed;
+    width:96%;
+}
+
+ .navigation .search{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 10px 14px;
+   border: 1px solid #d7dbe6;
+   border-radius: 4px;
+}
+.navigation .search i{
+margin-right: 14px;
+}
+
+.navigation .search input{
+border: none;
+outline: none;
+font-size: 14px;
+margin-left: 30px;
+}
+
+.navigation .profile{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.navigation .profile i{
+margin-right: 20px;
+font-size: 19px;
+font-weight: 400;
+}
+.navigation .profile img{
+width: 30px;
+height: 30px;
+object-fit: cover;
+border-radius: 50%;
+}
+.navigation .toggles img{
+ width: 50px;
+ border-radius: 50%;
+}
+
+.diagram{
+ width: 30%;
+padding-top: 100px;
+padding-left: 30px;
+}
+.heading{
+ color: #594ef7;
+ font-size: 400;
+ font-weight: bold;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+ padding-left: 190px;
+}
+
+#mainDiv{
+ display: flex;
+}
+#chart2{
+ width: 30%;
+padding-top: 100px;
+padding-left: 30px;
+}
