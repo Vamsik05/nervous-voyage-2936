@@ -163,7 +163,7 @@
         
       }
 
-      .product-card {
+      /* .product-card {
   margin-left: 50px;
   margin-top: 100px;
   display: flex;
@@ -173,7 +173,7 @@
   justify-content: center;
   height: 300px;
   padding-left: 10px;
-  /* border: 1px solid red */
+  border: 1px solid red
 }
 
 .product-images {
@@ -184,9 +184,9 @@
   margin-top: 60px;
 }
 
-/* .prices {
+.prices {
    Styles for prices go here 
-} */
+}
 
 .add-remove {
   display: flex;
@@ -214,7 +214,7 @@
   height: 30px;
   padding-bottom: 5px;
   padding-top: 0
-}
+} */
 
 
         /* #product-card{
@@ -274,12 +274,84 @@
              padding-top: 0px;
            } */
 
+           #main-div{
+            width: 100%;
+            display: flex;
+           }
+
+           #card-container{
+            width: 60%;
+            display:grid;
+            grid-template-columns: repeat(2,1fr);
+            border: 1px solid red;
+          }
+
+          .card-div{
+            display: block;
+            justify-content: center;
+            border: 1px solid red;
+            margin-left: 25px;
+            width: 400px;
+            }
+
+          .card-image{
+     /* border: 1px solid green; */
+      width: 100%;
+      background-color: #f7f7f7;
+          }
+
+          .card-text{
+            /* border: 1px solid red; */
+            font-size: small;
+            margin: 10px;
+            color: #212121;
+          }
+
+          .card-price{
+            display: flex;
+            /* border:1px solid red; */
+            margin: 10px;
+            /* font-size: ; */
+          }
+
+          .card-price del{
+             margin-left:30px ;
+             color:#909090;
+          }
+
+          .card-offer{
+            /* border: 1px solid red; */
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            height:40px;
+          }
+          .card-offer h4{
+            padding-top: 8px;
+            color: #e66b55;
+          }
+
+          
+
+          .remove{
+            background-color:#fb641b ;
+            border: none;
+            color: #ffffff;
+            border-radius: 3px;
+            width: 80px;
+          }
+
+          .remove:hover{
+            background-color: #FF0000;
+            cursor: pointer;
+          }
+
            /* checkout */
 
            #checkout{
             /* border: 1px solid red; */
-            width: 35%;
-            margin-left: 80px;
+            width: 40%;
+            margin-left: 80px; 
             margin-top: 100px;
            }
 
@@ -449,21 +521,27 @@
 
           
           <div id="header"><h1>SHOPPING BAG</h1></div>  
-          <div id="big-main">         
-    <div id="main-container">
-        <template id="product-card-template">
-    <div class="product-card">
-       <img class="product-images" src="https://images.dailyobjects.com/marche/product-images/1205/dailyobjects-crimson-red-swing-duffle-bag-images/DailyObjects-Red-Swing-Duffle-Bag.png?tr=cm-pad_resize,v-2,w-134,h-164,dpr-1" alt="">
-       <div><p class="product-title">Orange Ridge Loop Apple WatchBand <br> (42/44/45/49mm)</p>
-    <h5 class="prices">Rs.1599  <del class="discount"> 1999</del> </h5> 
-    <div ><button class="add">+</button><p id="count"></p><button class="remove">-</button></div>
-     <div class="delete"><i class="far fa-trash-alt"></i></div> 
-    </div>
-    </div>
-</template>
-
-    
-</div>
+         <div id="main-div">
+          <div id="card-container">
+            <div class="card-div">  
+             <div class="card-image"><img src="https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-surat-city-tag-glass-case-cover-for-samsung-galaxy-m53-images/DailyObjects-Surat-City-Tag-Glass-Case-Cover-For-Samsung-Galaxy-M53-2.png?tr=cm-pad_resize,v-2,w-352,h-434,dpr-1" alt=""></div>
+             <div class="card-text"> <p>Surat City Tag Glass Case Cover For Samsung Galaxy M53</p></div>
+             <div class="card-price"> <h3>Rs.799</h3><del> 1299</del></div>
+             <div class="card-offer"><h4 >BUY 1 GET 1 FREE*</h4>
+              
+               <button class="remove">Remove</button>
+             </div>
+         </div>
+            <div class="card-div">  
+             <div class="card-image"><img src="https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-surat-city-tag-glass-case-cover-for-samsung-galaxy-m53-images/DailyObjects-Surat-City-Tag-Glass-Case-Cover-For-Samsung-Galaxy-M53-2.png?tr=cm-pad_resize,v-2,w-352,h-434,dpr-1" alt=""></div>
+             <div class="card-text"> <p>Surat City Tag Glass Case Cover For Samsung Galaxy M53</p></div>
+             <div class="card-price"> <h3>Rs.799</h3><del> 1299</del></div>
+             <div class="card-offer"><h4 >BUY 1 GET 1 FREE*</h4>
+              
+               <button class="remove">Remove</button>
+             </div>
+         </div>
+         </div>
     
 
 <div id="checkout">
@@ -483,57 +561,77 @@
     
 </body>
 <script>
-  // Get the template and main container
-const template = document.querySelector('#product-card-template');
-const mainContainer = document.querySelector('#main-container');
+     
 
-// Function to create a product card from data
-function createProductCard(data) {
-  // Clone the template
-  const productCard = template.content.cloneNode(true);
+     // Function to fetch data and create HTML element for a product
+async function getProductCard(productId) {
+  try {
+    // Fetch product data from the API
+    const response = await fetch(`http://localhost:7000/product/get/${productId}`);
+    const productData = await response.json();
 
-  // Fill in the data
-  const images = productCard.querySelector('.product-images');
-  images.src = data.image;
-  images.alt = data.name;
+    // Create card elements
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('card-div');
 
-  productCard.querySelector('.product-title').textContent = data.name;
+    const cardImage = document.createElement('div');
+    cardImage.classList.add('card-image');
+    const image = document.createElement('img');
+    image.src = productData.image;
+    image.alt = '';
+    cardImage.appendChild(image);
 
-  const prices = productCard.querySelector('.prices');
-  prices.innerHTML = `<span class="price">${data.price}</span>`;
+    const cardText = document.createElement('div');
+    cardText.classList.add('card-text');
+    const textParagraph = document.createElement('p');
+    textParagraph.textContent = productData.name;
+    cardText.appendChild(textParagraph);
 
-  // Add event listeners to the add and remove buttons
-  const addBtn = productCard.querySelector('.add');
-  const removeBtn = productCard.querySelector('.remove');
-  const countSpan = productCard.querySelector('.count');
-  let count = 0;
+    const cardPrice = document.createElement('div');
+    cardPrice.classList.add('card-price');
+    const priceHeading = document.createElement('h3');
+    priceHeading.textContent = `Rs. ${productData.price}`;
+    const originalPrice = document.createElement('del');
+    originalPrice.textContent = productData.discounted_price;
+    cardPrice.appendChild(priceHeading);
+    cardPrice.appendChild(originalPrice);
 
-  addBtn.addEventListener('click', () => {
-    count++;
-    countSpan.textContent = count;
-  });
+    const cardOffer = document.createElement('div');
+    cardOffer.classList.add('card-offer');
+    const offerHeading = document.createElement('h4');
+    offerHeading.textContent = productData.offer;
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove');
+    removeButton.textContent = 'Remove';
+    cardOffer.appendChild(offerHeading);
+    cardOffer.appendChild(removeButton);
 
-  removeBtn.addEventListener('click', () => {
-    if (count > 0) {
-      count--;
-      countSpan.textContent = count;
-    }
-  });
+    // Append card elements to card container
+    cardDiv.appendChild(cardImage);
+    cardDiv.appendChild(cardText);
+    cardDiv.appendChild(cardPrice);
+    cardDiv.appendChild(cardOffer);
 
-  productCard.querySelector('.delete').addEventListener('click', () => {
-    productCard.remove();
-  });
-
-  // Add the product card to the main container
-  mainContainer.appendChild(productCard);
+    return cardDiv;
+  } catch (error) {
+    console.error('Error fetching product data:', error);
+    return null;
+  }
 }
 
-// Fetch the product data from the API and create product cards for each one
-fetch('http://localhost:3000/cart')
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(productData => createProductCard(productData));
+// Usage example:
+const productId = '12345'; // Replace with the actual product ID
+getProductCard(productId)
+  .then(cardElement => {
+    if (cardElement) {
+      const cartContainer = document.getElementById('cart-container');
+      cartContainer.appendChild(cardElement);
+    }
+  })
+  .catch(error => {
+    console.error('Error creating product card:', error);
   });
+
 
 
 </script>

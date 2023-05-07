@@ -137,6 +137,80 @@
         #banner-container img{
             width: 100%;
         }
+          /*card-container  */
+
+          #card-container{
+            width: 100%;
+            display:grid;
+            grid-template-columns: repeat(3,1fr);
+          }
+
+          .card-div{
+            
+            display: block;
+            justify-content: center;
+            /* border: 1px solid red; */
+            margin-left: 90px;
+            width: 400px;
+            /* box-shadow:black ; */
+
+
+          }
+
+          .card-image{
+     /* border: 1px solid green; */
+      width: 100%;
+      background-color: #f7f7f7;
+          }
+
+          .card-text{
+            /* border: 1px solid red; */
+            font-size: small;
+            margin: 10px;
+            color: #212121;
+          }
+
+          .card-price{
+            display: flex;
+            /* border:1px solid red; */
+            margin: 10px;
+            /* font-size: ; */
+          }
+
+          .card-price del{
+             margin-left:30px ;
+             color:#909090;
+          }
+
+          .card-offer{
+            /* border: 1px solid red; */
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+            height:40px;
+          }
+          .card-offer h4{
+            padding-top: 8px;
+            color: #e66b55;
+          }
+
+          .cart{
+            background-color:#fb641b ;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            width: 100px;
+            cursor: pointer;
+          }
+
+          .buy{
+            background-color:#20a87e ;
+            border: none;
+            color: #ffffff;
+            border-radius: 3px;
+            width: 80px;
+          }
+
     </style>
 </head>
 <body>
@@ -179,39 +253,112 @@
     <div id="banner-container"><img src="https://images.dailyobjects.com/marche/assets/images/other/offer-baners-updated-homepage-desktop.jpg?tr=cm-pad_crop,v-2,dpr-1" alt=""></div>
 </div>
 
-    <div id="car-container">
-       <div >  <img src="" alt="">
-         <p></p>
-         <h3></h3>
-         <h4></h4>
+    <div id="card-container">
+       <div class="card-div">  
+        <div class="card-image"><img src="https://images.dailyobjects.com/marche/product-images/1101/dailyobjects-surat-city-tag-glass-case-cover-for-samsung-galaxy-m53-images/DailyObjects-Surat-City-Tag-Glass-Case-Cover-For-Samsung-Galaxy-M53-2.png?tr=cm-pad_resize,v-2,w-352,h-434,dpr-1" alt=""></div>
+        <div class="card-text"> <p>Surat City Tag Glass Case Cover For Samsung Galaxy M53</p></div>
+        <div class="card-price"> <h3>Rs.799</h3><del> 1299</del></div>
+        <div class="card-offer"><h4 >BUY 1 GET 1 FREE*</h4>
+          <button class="cart">ADD TO CART</button>
+          <button class="buy">BUY NOW</button>
+        </div>
     </div>
     </div>
 </body>
 <script>
  
  // retrieve data from API
-fetch("http://localhost:3000/products")
+      
+     // Fetch card data from API
+     fetch('http://localhost:7000/product/get')
   .then(response => response.json())
-  .then(product => {
-    // create product card
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-      <div class="divImage"> <img src="${product.image}" alt="${product.name}"></div>
-      <div>
-        <div> <h2>${product.name}</h2></div>
-       
-        <div class="rate"><p>Price: $${product.price}</p></div>
-        <div class="rate"><p>Offer: $${product.offer}</p></div>
-        
-      </div>
-    `;
-    
-    // add product card to page
-    const container = document.querySelector('.product-container');
-    container.appendChild(card);
+  .then(data => {
+    // Loop through each card data
+    data.forEach(cardData => {
+      // Create card elements
+      const cardDiv = document.createElement('div');
+      cardDiv.classList.add('card-div');
+
+      const cardImage = document.createElement('div');
+      cardImage.classList.add('card-image');
+      const image = document.createElement('img');
+      image.src = cardData.image;
+      image.alt = "error";
+      cardImage.appendChild(image);
+
+      const cardText = document.createElement('div');
+      cardText.classList.add('card-text');
+      const textParagraph = document.createElement('p');
+      textParagraph.textContent = cardData.name;
+      cardText.appendChild(textParagraph);
+
+      const cardPrice = document.createElement('div');
+      cardPrice.classList.add('card-price');
+      const priceHeading = document.createElement('h3');
+      priceHeading.textContent = cardData.price;
+      const originalPrice = document.createElement('del');
+      originalPrice.textContent = cardData.discounted_price;
+      cardPrice.appendChild(priceHeading);
+      cardPrice.appendChild(originalPrice);
+
+      const cardOffer = document.createElement('div');
+      cardOffer.classList.add('card-offer');
+      const offerHeading = document.createElement('h4');
+      offerHeading.textContent = cardData.offer;
+      const addToCartButton = document.createElement('button');
+      addToCartButton.classList.add('cart');
+      addToCartButton.textContent = 'ADD TO CART';
+      const buyNowButton = document.createElement('button');
+      buyNowButton.classList.add('buy');
+      buyNowButton.textContent = 'BUY NOW';
+      cardOffer.appendChild(offerHeading);
+      cardOffer.appendChild(addToCartButton);
+      cardOffer.appendChild(buyNowButton);
+
+      // Append card elements to card container
+      const cardContainer = document.getElementById('card-container');
+      cardDiv.appendChild(cardImage);
+      cardDiv.appendChild(cardText);
+      cardDiv.appendChild(cardPrice);
+      cardDiv.appendChild(cardOffer);
+      cardContainer.appendChild(cardDiv);
+
+      addToCartButton.onclick = async () => {
+        addToCart(cardData);
+      };
+    });
   })
-  .catch(error => console.error(error));
+  .catch(error => {
+    console.error('Error fetching card data:', error);
+  });
+
+
+// Function to add a product to the cart
+function addToCart(cardData) {
+  fetch('http://localhost:7000/cart/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(cardData)
+  })
+    .then(response => {
+      if (response.ok) {
+        // Display a success message
+        console.log(response)
+        alert('Product added to cart');
+      } 
+      else {
+        // Display an error message if adding to cart failed
+        alert('Failed to add product to cart');
+      }
+    })
+    .catch(error => {
+      console.error('Error adding product to cart:', error);
+    });
+}
+
+
 
            
 </script>
