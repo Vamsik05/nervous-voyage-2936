@@ -1,16 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+  <title>Login</title>
+  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  <style>
+    .container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input[type="email"],
+input[type="password"],
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
-    
+  <script>
+
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Get form values
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+
+  // Create login object
+  var loginData = {
+    email: email,
+    password: password
+  };
+
+  // Make API request
+  fetch('http://localhost:7000/user/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(loginData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Do something with the response
+
+    // Check if login is successful
+    if (data.msg==='Login successful') {
+      // Redirect to index.html
+      window.location.href = 'index.html';
+    } else {
+      alert('Login failed. Please try again.');
+    }
+  })
+  .catch(error => {
+    console.error(error); // Handle any errors
+  });
+});
+
+  </script>
 </body>
-<script>
-    
-</script>
 </html>
